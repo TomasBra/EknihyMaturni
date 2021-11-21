@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container text-center">
+        <h1 class="display-4">Vítejte v e-knihovně</h1>
+        <div class="text-left">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.search_value }}
+                <div>
+                    <div class="mb-2">
+                        <div class="col-sm-3 d-inline-block">
+                            {{ form.season }}
+                            </select>
+                        </div>
+                        <div class="col-sm-3 d-inline-block">
+                            {{ form.genre }}
+                        </div>
+                        <div class="col-sm-3 d-inline-block">
+                            {{ form.maturity }}
+                        </div>
+                    </div>
+                    <input type="submit" name="search" class="btn btn-primary" value="Vyhledat"/>
+                    <input type="submit" name="cancel_search" class="btn btn-danger" value="Resetovat"/>
+                </div>
+            </form>
+        </div>
+        <div class="books">
+            {% for book in Books %}
+                <div class="book d-inline-block p-2 mt-5 mx-1">
+                    <h3 class="d-block mx-auto first-part">{{ book.name }}</h3>
+                    <h3 class="d-block mx-auto second-part">{{ book.author }}</h3>
+                    <img class="d-block mx-auto mt-3 first-part book-cover" src="{{ book.logo.url }}"/>
+                    <p class="second-part description mt-3">{{ book.description }}</p>
+                    <a href="{{ book.pdf.url }}" target="_blank">
+                        <button class="d-block btn btn-primary mx-auto mt-3">Začít číst</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

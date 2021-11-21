@@ -1,0 +1,35 @@
+
+.book{
+        border: 1px black solid;
+        width: 245px;
+        height: 373px;
+}
+
+.second-part{
+        display: none !important;
+}
+
+.book:hover .first-part{
+        display: none !important;
+}
+
+.book:hover .second-part{
+        display: block !important;
+}
+
+.book-cover{
+        object-fit: scale-down;
+        height: 251px;
+}
+
+.description{
+        height: 251px;
+}
+
+.text-left{
+        text-align: left;
+}
+
+.box-shadow{
+        box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+}
