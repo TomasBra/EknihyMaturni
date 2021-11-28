@@ -27,8 +27,8 @@
         <div class="books">
             {% for book in Books %}
                 <div class="book d-inline-block p-2 mt-5 mx-1">
-                    <h3 class="d-block mx-auto first-part">{{ book.name }}</h3>
-                    <h3 class="d-block mx-auto second-part">{{ book.author }}</h3>
+                    <h5 class="d-block mx-auto first-part height-auto">{{ book.name }}</h5>
+                    <h5 class="d-block mx-auto second-part height-auto">{{ book.author }}</h5>
                     <img class="d-block mx-auto mt-3 first-part book-cover" src="{{ book.logo.url }}"/>
                     <p class="second-part description mt-3">{{ book.description }}</p>
                     <a href="{{ book.pdf.url }}" target="_blank">

@@ -10,7 +10,7 @@ from Eknihy.models import Book, Author, YearOfMaturation
 class BookAdmin(admin.ModelAdmin):
     search_fields = ("name", "author__full_name")
     list_display = ("name", "author", "creation_date", "genre", "season")
-    list_filter = ("name", "author__full_name", "creation_date", "maturity", "genre", "season")
+    list_filter = ("author__full_name", "creation_date", "maturity", "genre", "season")
     list_per_page = 10
     pass
 

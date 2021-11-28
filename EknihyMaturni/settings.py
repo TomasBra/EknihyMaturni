@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-f38@2mk^3624rw01(p@d*hvx#+w5l6$go4+j_rgi=&lzf$6lag
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'maturitaeknihy.herokuapp.com']
-
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'maturitaeknihy.herokuapp.com']
 
 # Application definition
 
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Eknihy',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -2,7 +2,7 @@
 .book{
         border: 1px black solid;
         width: 245px;
-        height: 373px;
+        min-height: 393px;
 }
 
 .second-part{
@@ -33,3 +33,9 @@
 .box-shadow{
         box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
 }
+
+.height-auto{
+        height: 55px;
+        font-size: calc(75% * 1.70);
+}
+

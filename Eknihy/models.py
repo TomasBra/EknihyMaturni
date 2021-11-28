@@ -12,7 +12,7 @@ class Author(models.Model):
     class Meta:
         verbose_name_plural = "Autoři"
         verbose_name = "Autor"
-
+        ordering = ["full_name"]
 # Create your models here.
 
 class YearOfMaturation(models.Model):
@@ -24,6 +24,7 @@ class YearOfMaturation(models.Model):
     class Meta:
         verbose_name_plural = "Roky maturit"
         verbose_name = "Rok maturity"
+        ordering = ["date"]
 
 class Book(models.Model):
     creation_date = models.DateTimeField(verbose_name="Datum vytvoření", default=timezone.now)
