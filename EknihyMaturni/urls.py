@@ -20,12 +20,13 @@ from django.contrib import admin
 from django.urls import path
 from django.views.static import serve
 
-from Eknihy.views import index, listbooks
+from Eknihy.views import index, listbooks, read
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('books', listbooks, name='listbooks'),
+    path('read/<int:id>',read, name='read'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 

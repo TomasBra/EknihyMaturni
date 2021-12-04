@@ -31,7 +31,7 @@
                     <h5 class="d-block mx-auto second-part height-auto">{{ book.author }}</h5>
                     <img class="d-block mx-auto mt-3 first-part book-cover" src="{{ book.logo.url }}"/>
                     <p class="second-part description mt-3">{{ book.description }}</p>
-                    <a href="{{ book.pdf.url }}" target="_blank">
+                    <a href="/read/{{book.pk}}" target="_blank">
                         <button class="d-block btn btn-primary mx-auto mt-3">Začít číst</button>
                     </a>
                 </div>

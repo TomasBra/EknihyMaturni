@@ -1,4 +1,5 @@
 from django.core.serializers.base import Serializer
+from django.http import FileResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -14,7 +15,7 @@ import json
 
 
 def index(request):
-    books = Book.objects.all().order_by('name')
+    books = Book.objects.all()
     maturity = YearOfMaturation.objects.all()
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -45,12 +46,12 @@ def index(request):
     if request.method == "GET":
         form = SearchForm()
 
-    context = {"Books": books, "form": form, "Maturity": maturity}
+    context = {"Books": books.order_by('name'), "form": form, "Maturity": maturity}
     return render(request, "index.html", context)
 
 
 def listbooks(request):
-    books = Book.objects.all().order_by('name')
+    books = Book.objects.all()
     Maturity = YearOfMaturation.objects.all()
     ShowChooseText = False
     if request.method == 'POST':
@@ -84,5 +85,10 @@ def listbooks(request):
         maturity = 0
         ShowChooseText = True
 
-    context = {"Books": books, "JsBooks": serializers.serialize("json", books), 'Authors': serializers.serialize("json",Author.objects.all()), "form": form, "Maturity": Maturity, "ShowChooseText": ShowChooseText, "ChosenMaturity": maturity}
+    context = {"Books": books.order_by('name'), "JsBooks": serializers.serialize("json", books.order_by('name')), 'Authors': serializers.serialize("json",Author.objects.all()), "form": form, "Maturity": Maturity, "ShowChooseText": ShowChooseText, "ChosenMaturity": maturity}
     return render(request, "listbooks.html", context)
+
+
+def read(request, id):
+    book = Book.objects.all().get(pk=id).pdf
+    return FileResponse(book, content_type='application/pdf')

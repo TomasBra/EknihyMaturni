@@ -37,9 +37,9 @@ class Book(models.Model):
     season = models.CharField(verbose_name="Období",choices=[('literatura do konce 18. století','literatura do konce 18. století'),('literatura do konce 19. století','literatura do konce 19. století'),('světová literatura 20. a 21. století','světová literatura 20. a 21. století'),('česká literatura 20. a 21. století','česká literatura 20. a 21. století')], max_length=200, default="světová literatura 20. a 21. století")
     genre = models.CharField(verbose_name="Žánr",choices=[('poezie','poezie'),('próza','próza'),('drama','drama')], max_length=200, default='próza')
 
-
     def __str__(self):
         return self.name
+
 
     class Meta:
         verbose_name_plural = "Knihy"
